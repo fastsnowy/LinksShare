@@ -4,8 +4,8 @@ import "@mantine/core/styles.css"
 import { ColorSchemeScript, MantineProvider } from "@mantine/core"
 
 export const metadata = {
-  title: "Share Link",
-  description: "I have followed setup instructions carefully",
+  title: "Links Share",
+  description: "MisskeyやMastodonに投稿を共有するサービスです。",
 }
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider defaultColorScheme="auto">{children}</MantineProvider>
       </body>
     </html>
   )
