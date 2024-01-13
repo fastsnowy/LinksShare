@@ -4,7 +4,7 @@ import { Button, Textarea } from "@mantine/core"
 import { useAtom } from "jotai"
 import { useSearchParams } from "next/navigation"
 import { useState } from "react"
-import { MisskeyIntentNote } from "./MisskeyShare"
+import { IntentNote } from "./IntentShare"
 import { TwitterIntentTweet } from "./XShare"
 
 export const TextBox = () => {
@@ -37,7 +37,11 @@ export const TextBox = () => {
       <Button
         variant="light"
         instance={instance}
-        component={MisskeyIntentNote}
+        component={
+          service === "misskey" || service === "mastodon"
+            ? IntentNote
+            : TwitterIntentTweet
+        }
         text={shareText}
       >
         Share

@@ -11,7 +11,7 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center px-4 gap-8">
-      <h1 className="text-6xl">Share Contents</h1>
+      <h1 className="text-6xl">Links Share</h1>
       <MyCard misskey={misskeyInstanceList} mastodon={mastdonInstanceList} />
     </main>
   )
