@@ -1,15 +1,15 @@
 import { ComponentProps, forwardRef } from "react"
 
-type MisskeyIntentTweetProps = {
+type IntentProps = {
   instance: string
   title?: string
   text?: string
   url?: string
 } & Omit<ComponentProps<"a">, "href" | "target" | "rel">
 
-export const MisskeyIntentNote = forwardRef<
+export const IntentNote = forwardRef<
   HTMLAnchorElement,
-  MisskeyIntentTweetProps
+  IntentProps
 >(
   (
     { instance, title, text, url, ...intrinsicProps },
@@ -35,5 +35,5 @@ export const MisskeyIntentNote = forwardRef<
 )
 
 if (process.env.NODE_ENV === "development") {
-  MisskeyIntentNote.displayName = "MisskeyShareLink"
+  IntentNote.displayName = "MisskeyShareLink"
 }
