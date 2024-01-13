@@ -33,7 +33,6 @@ export const TextBox = () => {
         autosize
         minRows={4}
       />
-
       <Button
         variant="light"
         instance={instance}
@@ -43,6 +42,8 @@ export const TextBox = () => {
             : TwitterIntentTweet
         }
         text={shareText}
+        data-disabled={instance === "" && service !== "X"}
+        onClick={(event) => event.preventDefault()}
       >
         Share
       </Button>
