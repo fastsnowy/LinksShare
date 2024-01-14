@@ -1,9 +1,10 @@
 export const AboutThisSite = () => {
   return (
-    <div className="text-center">
-      <h1 className="text-6xl">Links Share</h1>
+    <div className="flex flex-col gap-4">
+      <h1 className="text-6xl text-center">Links Share</h1>
       <p>
-        Links Shareは、リンクを共有するためのサービスです。
+        Links
+        Shareは、X(Twitter)やMisskeyやMastodonなどに共有するためのサービスです。
         <br />
       </p>
     </div>

@@ -27,7 +27,7 @@ export const TextBox = () => {
   return (
     <div className="flex flex-col gap-8">
       <Textarea
-        label="Share text"
+        label="テキスト"
         value={shareText}
         onChange={(event) => setShareText(event.currentTarget.value)}
         autosize
@@ -43,9 +43,13 @@ export const TextBox = () => {
         }
         text={shareText}
         data-disabled={instance === "" && service !== "X"}
-        onClick={(event) => event.preventDefault()}
+        onClick={(event) => {
+          if (instance === "" && service !== "X") {
+            event.preventDefault()
+          }
+        }}
       >
-        Share
+        シェア
       </Button>
     </div>
   )

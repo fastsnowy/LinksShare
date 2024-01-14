@@ -1,16 +1,7 @@
 "use client"
 import { serverAtom, serviceAtom } from "@/global"
-import {
-  Autocomplete,
-  Button,
-  Card,
-  CloseButton,
-  Input,
-  NativeSelect,
-  TextInput,
-  Textarea,
-} from "@mantine/core"
-import { atom, useAtom } from "jotai"
+import { Autocomplete, Card, CloseButton, Select } from "@mantine/core"
+import { useAtom } from "jotai"
 import { useSearchParams } from "next/navigation"
 import { memo, useState } from "react"
 import { TextBox } from "./Form"
@@ -22,40 +13,38 @@ type Props = {
 
 const MemoTextBox = memo(TextBox)
 
-export function MyCard({ misskey, mastodon }: Props) {
+export function ShareCard({ misskey, mastodon }: Props) {
   const [service, setService] = useAtom(serviceAtom)
   const [server, setServer] = useAtom(serverAtom)
   const searchParams = useSearchParams()
   const paramService = searchParams.get("service")
   const paramServer = searchParams.get("server")
 
-  // serviceがあればそれを初期値とする
   useState(() => {
     if (paramService) {
       setService(paramService)
     }
   })
-  // instanceがあればそれを初期値とする
+
   useState(() => {
     if (paramServer) {
       setServer(paramServer)
     }
   })
-  console.log(service)
-  // serviceの1文字目を大文字にする
   return (
     <Card withBorder className="flex w-full max-w-3xl gap-8">
-      <NativeSelect
-        label="Share to"
-        description="Select service"
-        value={service}
-        onChange={(event) => setService(event.currentTarget.value)}
+      <Select
+        label="共有先"
+        description="共有先のサービスを選択"
+        searchable
+        searchValue={service}
+        onSearchChange={setService}
         data={["X", "misskey", "mastodon"]}
       />
       {service.toLowerCase() === "misskey" ? (
         <Autocomplete
-          label="Select server"
-          description="Input your server"
+          label="サーバーを選択"
+          description="共有先のサーバーを入力"
           placeholder="ex: misskey.io"
           data={misskey}
           value={server}
@@ -71,8 +60,8 @@ export function MyCard({ misskey, mastodon }: Props) {
       ) : null}
       {service.toLowerCase() === "mastodon" ? (
         <Autocomplete
-          label="Select server"
-          description="Input your server"
+          label="サーバーを選択"
+          description="共有先のサーバーを入力"
           placeholder="ex: mastodon.social"
           data={mastodon}
           value={server}
