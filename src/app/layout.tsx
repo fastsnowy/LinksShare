@@ -3,10 +3,28 @@ import "@mantine/core/styles.css"
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core"
 
+const siteName = "Links Share"
+const description =
+  "Links Shareは、X(Twitter)やMisskeyやMastodonなどに共有するためのサービスです。"
+const siteUrl = "https://links-share.vercel.app/"
+
 export const metadata = {
-  title: "Links Share",
-  description:
-    "Links Shareは、X(Twitter)やMisskeyやMastodonなどに共有するためのサービスです。",
+  title: siteName,
+  description: description,
+  url: siteUrl,
+  twitter: {
+    card: "summary",
+    title: siteName,
+    description: description,
+  },
+  openGraph: {
+    title: siteName,
+    description: description,
+    siteUrl,
+    siteName,
+    locale: "ja_JP",
+    type: "website",
+  },
 }
 
 export default function RootLayout({
@@ -17,7 +35,6 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/png" href="/icon.png" />
         <ColorSchemeScript />
       </head>
       <body>
