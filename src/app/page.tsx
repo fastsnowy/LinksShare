@@ -20,12 +20,12 @@ export default async function Home() {
         mastodon={mastodonInstanceList}
       />
       <ActionIcon
-        variant="light"
+        variant="subtle"
         color="gray"
         size="lg"
         component="a"
         target="_blank"
-        href=""
+        href="https://github.com/fastsnowy/LinksShare"
       >
         <IconBrandGithub />
       </ActionIcon>
