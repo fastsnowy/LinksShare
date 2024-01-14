@@ -1,5 +1,8 @@
-import UI from "@/layouts"
+import { AboutThisSite } from "@/components/About"
+import { ShareCard } from "@/components/Card"
 import { getMastodonServerList, getMisskeyServerList } from "@/libs/services"
+import { ActionIcon } from "@mantine/core"
+import { IconBrandGithub } from "@tabler/icons-react"
 
 export default async function Home() {
   const misskeyData = await getMisskeyServerList()
@@ -10,9 +13,22 @@ export default async function Home() {
   )
 
   return (
-    <UI
-      misskeyInstanceList={misskeyInstanceList}
-      mastodonInstanceList={mastodonInstanceList}
-    />
+    <main className="flex min-h-screen flex-col items-center justify-center px-4 gap-8">
+      <AboutThisSite />
+      <ShareCard
+        misskey={misskeyInstanceList}
+        mastodon={mastodonInstanceList}
+      />
+      <ActionIcon
+        variant="light"
+        color="gray"
+        size="lg"
+        component="a"
+        target="_blank"
+        href=""
+      >
+        <IconBrandGithub />
+      </ActionIcon>
+    </main>
   )
 }

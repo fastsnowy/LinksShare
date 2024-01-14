@@ -5,7 +5,8 @@ import { ColorSchemeScript, MantineProvider } from "@mantine/core"
 
 export const metadata = {
   title: "Links Share",
-  description: "MisskeyやMastodonに投稿を共有するサービスです。",
+  description:
+    "Links Shareは、X(Twitter)やMisskeyやMastodonなどに共有するためのサービスです。",
 }
 
 export default function RootLayout({
