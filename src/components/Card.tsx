@@ -36,7 +36,6 @@ export function ShareCard({ misskey, mastodon }: Props) {
       <Select
         label="共有先"
         description="共有先のサービスを選択"
-        searchable
         searchValue={service}
         onSearchChange={setService}
         data={["X", "misskey", "mastodon"]}
