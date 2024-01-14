@@ -16,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <head>
+        <link rel="icon" type="image/png" href="/icon.png" />
         <ColorSchemeScript />
       </head>
       <body>
