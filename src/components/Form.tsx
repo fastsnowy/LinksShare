@@ -15,13 +15,16 @@ export const TextBox = () => {
 
   const paramText = searchParams.get("text")
   const paramUrl = searchParams.get("url")
+  const paramVia = searchParams.get("via")
   useState(() => {
-    if (paramText) {
-      if (paramUrl) {
-        setShareText(`${paramText}\n${paramUrl}`)
-      } else {
-        setShareText(paramText)
-      }
+    if (paramText !== null) {
+      setShareText(paramText)
+    }
+    if (paramUrl !== null) {
+      setShareText((prev) => `${prev}\n${paramUrl}`)
+    }
+    if (paramVia !== null) {
+      setShareText((prev) => `${prev} @${paramVia}より`)
     }
   })
   return (
