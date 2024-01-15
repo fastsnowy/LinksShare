@@ -6,9 +6,10 @@ import { ColorSchemeScript, MantineProvider } from "@mantine/core"
 const siteName = "Links Share"
 const description =
   "Links Shareは、X(Twitter)やMisskeyやMastodonなどに共有するためのサービスです。"
-const siteUrl = "https://links-share.vercel.app/"
+const siteUrl = "https://links-share.vercel.app"
 
 export const metadata = {
+  // ref: https://nextjs.org/docs/app/api-reference/functions/generate-metadata
   title: siteName,
   description: description,
   url: siteUrl,
@@ -16,12 +17,20 @@ export const metadata = {
     card: "summary",
     title: siteName,
     description: description,
+    images: [`${siteUrl}/og.png`],
   },
   openGraph: {
     title: siteName,
     description: description,
-    siteUrl,
-    siteName,
+    url: siteUrl,
+    images: [
+      {
+        url: `${siteUrl}/og.png`,
+        width: 1200,
+        height: 630,
+        alt: siteName,
+      },
+    ],
     locale: "ja_JP",
     type: "website",
   },
