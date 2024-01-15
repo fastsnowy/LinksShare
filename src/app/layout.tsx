@@ -2,6 +2,7 @@ import "@/app/globals.css"
 import "@mantine/core/styles.css"
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core"
+import { Analytics } from "@vercel/analytics/react"
 
 const siteName = "Links Share"
 const description =
@@ -48,7 +49,10 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider defaultColorScheme="auto">{children}</MantineProvider>
+        <MantineProvider defaultColorScheme="auto">
+          {children}
+          <Analytics />
+        </MantineProvider>
       </body>
     </html>
   )
