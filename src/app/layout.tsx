@@ -17,7 +17,7 @@ export const metadata = {
     card: "summary",
     title: siteName,
     description: description,
-    images: [`${siteUrl}/ogpengraph-image.png`],
+    images: [`${siteUrl}/opengraph-image.png`],
   },
   openGraph: {
     title: siteName,
@@ -25,7 +25,7 @@ export const metadata = {
     url: siteUrl,
     images: [
       {
-        url: `${siteUrl}/ogpengraph-image.png`,
+        url: `${siteUrl}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: siteName,
