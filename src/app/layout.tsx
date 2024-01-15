@@ -10,6 +10,7 @@ const siteUrl = "https://links-share.vercel.app"
 
 export const metadata = {
   // ref: https://nextjs.org/docs/app/api-reference/functions/generate-metadata
+  metadataBase: new URL(siteUrl),
   title: siteName,
   description: description,
   url: siteUrl,
@@ -17,7 +18,7 @@ export const metadata = {
     card: "summary",
     title: siteName,
     description: description,
-    images: [`${siteUrl}/og.png`],
+    images: ["/opengraph-image.png"],
   },
   openGraph: {
     title: siteName,
@@ -25,7 +26,7 @@ export const metadata = {
     url: siteUrl,
     images: [
       {
-        url: `${siteUrl}/og.png`,
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: siteName,
