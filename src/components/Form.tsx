@@ -1,6 +1,7 @@
 "use client"
-import { serverAtom, serviceAtom } from "@/global"
+import { serviceAtom } from "@/global"
 import { Button, Textarea } from "@mantine/core"
+import { useLocalStorage } from "@mantine/hooks"
 import { useAtom } from "jotai"
 import { useSearchParams } from "next/navigation"
 import { useState } from "react"
@@ -9,13 +10,21 @@ import { TwitterIntentTweet } from "./XShare"
 
 export const TextBox = () => {
   const [shareText, setShareText] = useState("")
-  const [instance] = useAtom(serverAtom)
   const [service] = useAtom(serviceAtom)
   const searchParams = useSearchParams()
 
   const paramText = searchParams.get("text")
   const paramUrl = searchParams.get("url")
   const paramVia = searchParams.get("via")
+  const [localMissikeyServer] = useLocalStorage({
+    key: "misskey-server",
+    defaultValue: "",
+  })
+  const [localMastodonServer] = useLocalStorage({
+    key: "mastodon-server",
+    defaultValue: "",
+  })
+
   useState(() => {
     if (paramText !== null) {
       setShareText(paramText)
@@ -38,16 +47,24 @@ export const TextBox = () => {
       />
       <Button
         variant="light"
-        instance={instance}
+        instance={
+          service === "misskey" ? localMissikeyServer : localMastodonServer
+        }
         component={
           service === "misskey" || service === "mastodon"
             ? IntentNote
             : TwitterIntentTweet
         }
         text={shareText}
-        data-disabled={instance === "" && service !== "X"}
+        disabled={
+          (localMissikeyServer === "" && service === "misskey") ||
+          (localMastodonServer === "" && service === "mastodon")
+        }
         onClick={(event) => {
-          if (instance === "" && service !== "X") {
+          if (
+            (localMissikeyServer === "" && service === "misskey") ||
+            (localMastodonServer === "" && service === "mastodon")
+          ) {
             event.preventDefault()
           }
         }}

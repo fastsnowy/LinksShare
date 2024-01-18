@@ -1,6 +1,7 @@
 "use client"
-import { serverAtom, serviceAtom } from "@/global"
+import { serviceAtom } from "@/global"
 import { Autocomplete, Card, CloseButton, Select } from "@mantine/core"
+import { useLocalStorage } from "@mantine/hooks"
 import { useAtom } from "jotai"
 import { useSearchParams } from "next/navigation"
 import { memo, useState } from "react"
@@ -15,10 +16,26 @@ const MemoTextBox = memo(TextBox)
 
 export function ShareCard({ misskey, mastodon }: Props) {
   const [service, setService] = useAtom(serviceAtom)
-  const [server, setServer] = useAtom(serverAtom)
   const searchParams = useSearchParams()
   const paramService = searchParams.get("service")
   const paramServer = searchParams.get("server")
+  const [localMissikeyServer, setLocalMisskeyServer] = useLocalStorage({
+    key: "misskey-server",
+    defaultValue: "",
+  })
+
+  const [localMastodonServer, setLocalMastodonServer] = useLocalStorage({
+    key: "mastodon-server",
+    defaultValue: "",
+  })
+
+  useState(() => {
+    if (paramService === "misskey" && paramServer) {
+      setLocalMisskeyServer(paramServer)
+    } else if (paramService === "mastodon" && paramServer) {
+      setLocalMastodonServer(paramServer)
+    }
+  })
 
   useState(() => {
     if (paramService) {
@@ -26,11 +43,6 @@ export function ShareCard({ misskey, mastodon }: Props) {
     }
   })
 
-  useState(() => {
-    if (paramServer) {
-      setServer(paramServer)
-    }
-  })
   return (
     <Card withBorder className="flex w-full max-w-3xl gap-8">
       <Select
@@ -46,13 +58,13 @@ export function ShareCard({ misskey, mastodon }: Props) {
           description="共有先のサーバーを入力"
           placeholder="ex: misskey.io"
           data={misskey}
-          value={server}
-          onChange={(event) => setServer(event)}
+          value={localMissikeyServer}
+          onChange={(event) => setLocalMisskeyServer(event)}
           required
           rightSection={
             <CloseButton
-              onClick={() => setServer("")}
-              style={{ display: server ? undefined : "none" }}
+              onClick={() => setLocalMisskeyServer("")}
+              style={{ display: localMissikeyServer ? undefined : "none" }}
             />
           }
         />
@@ -63,13 +75,13 @@ export function ShareCard({ misskey, mastodon }: Props) {
           description="共有先のサーバーを入力"
           placeholder="ex: mastodon.social"
           data={mastodon}
-          value={server}
-          onChange={(event) => setServer(event)}
+          value={localMastodonServer}
+          onChange={(event) => setLocalMastodonServer(event)}
           required
           rightSection={
             <CloseButton
-              onClick={() => setServer("")}
-              style={{ display: server ? undefined : "none" }}
+              onClick={() => setLocalMastodonServer("")}
+              style={{ display: localMastodonServer ? undefined : "none" }}
             />
           }
         />
