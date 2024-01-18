@@ -39,10 +39,10 @@ template: |
 autolabeler:
   - label: enhancement
     branch:
-      - "/^feat(ure)?[/-].+/"
+      - "/^feat(ure)?[/-s].+/"
   - label: bug
     branch:
-      - "/^fix[/-].+/"
+      - "/^(fix|fixed)[/-].+/"
   - label: emergency
     branch:
       - "/^hotfix[/-].+/"
