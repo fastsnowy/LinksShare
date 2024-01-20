@@ -3,6 +3,7 @@ import { ShareCard } from "@/components/Card"
 import { getMastodonServerList, getMisskeyServerList } from "@/libs/services"
 import { ActionIcon } from "@mantine/core"
 import { IconBrandGithub } from "@tabler/icons-react"
+import { Suspense } from "react"
 
 export default async function Home() {
   const misskeyData = await getMisskeyServerList()
@@ -15,10 +16,12 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center px-4 gap-8">
       <AboutThisSite />
-      <ShareCard
-        misskey={misskeyInstanceList}
-        mastodon={mastodonInstanceList}
-      />
+      <Suspense>
+        <ShareCard
+          misskey={misskeyInstanceList}
+          mastodon={mastodonInstanceList}
+        />
+      </Suspense>
       <ActionIcon
         variant="subtle"
         color="gray"
