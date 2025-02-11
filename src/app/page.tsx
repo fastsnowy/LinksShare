@@ -6,12 +6,8 @@ import { hc } from "hono/client"
 import { Suspense } from "react"
 import { AppType } from "./api/[[...route]]/route"
 
-const hcHost =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000/"
-    : "https://links-share.vercel.app/"
-console.log(hcHost)
-const client = hc<AppType>(hcHost)
+// biome-ignore lint/style/noNonNullAssertion: <explanation>
+const client = hc<AppType>(process.env.NEXT_PUBLIC_API_URL!)
 
 export default async function Home() {
   const res_mi = await client.api.server.misskey.$get()
