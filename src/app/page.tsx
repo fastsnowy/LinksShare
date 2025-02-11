@@ -10,8 +10,14 @@ import { AppType } from "./api/[[...route]]/route"
 const client = hc<AppType>(process.env.NEXT_PUBLIC_API_URL!)
 
 export default async function Home() {
-  const res_mi = await client.api.server.misskey.$get()
-  const res_mstdn = await client.api.server.mastodon.$get()
+  const res_mi = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/server/misskey`,
+  )
+  const res_mstdn = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/server/mastodon`,
+  )
+  // const res_mi = await client.api.server.misskey.$get()
+  // const res_mstdn = await client.api.server.mastodon.$get()
   const misskeyInstanceList = await res_mi.json()
   const mastodonInstanceList = await res_mstdn.json()
 
