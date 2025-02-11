@@ -1,9 +1,7 @@
-import { zValidator } from "@hono/zod-validator"
 import { Hono } from "hono"
 import { handle } from "hono/vercel"
-import { z } from "zod"
 
-export const runtime = "edge"
+export const runtime = "nodejs"
 
 const app = new Hono().basePath("/api")
 
