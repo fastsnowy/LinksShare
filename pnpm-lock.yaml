@@ -18,8 +18,8 @@ importers:
         specifier: ^7.4.1
         version: 7.4.1(react@18.2.0)
       '@tabler/icons-react':
-        specifier: ^2.46.0
-        version: 2.46.0(react@18.2.0)
+        specifier: ^3.0.0
+        version: 3.30.0(react@18.2.0)
       '@vercel/analytics':
         specifier: ^1.1.1
         version: 1.1.1
@@ -267,13 +267,13 @@ packages:
   '@swc/helpers@0.5.2':
     resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}
 
-  '@tabler/icons-react@2.46.0':
-    resolution: {integrity: sha512-X8MRxuslIOFqMjAo+GvUZDpjlOwNYNJTuOsHXf/NBvVI6ygqUf0FUNsDLLA5fQ6k6KtRwxMlgGB+eR8ZG1UP0g==}
+  '@tabler/icons-react@3.30.0':
+    resolution: {integrity: sha512-9KZ9D1UNAyjlLkkYp2HBPHdf6lAJ2aelDqh8YYAnnmLF3xwprWKxxW8+zw5jlI0IwdfN4XFFuzqePkaw+DpIOg==}
     peerDependencies:
-      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+      react: '>= 16'
 
-  '@tabler/icons@2.46.0':
-    resolution: {integrity: sha512-Q5G8Pj5IO+Uhc6pszpu5/hGYY018JwEzzvmuqr+gKJtfIvAHA3umpwUilMRLEy89p+WCP+YsDhicMhfBCCv1qA==}
+  '@tabler/icons@3.30.0':
+    resolution: {integrity: sha512-c8OKLM48l00u9TFbh2qhSODMONIzML8ajtCyq95rW8vzkWcBrKRPM61tdkThz2j4kd5u17srPGIjqdeRUZdfdw==}
 
   '@types/node@20.11.0':
     resolution: {integrity: sha512-o9bjXmDNcF7GbM4CNQpmi+TutCgap/K3w1JyKgxAjqx41zp9qlIAVFi0IhCNsJcXolEqLWhbFbEeL0PvYm4pcQ==}
@@ -1110,13 +1110,12 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  '@tabler/icons-react@2.46.0(react@18.2.0)':
+  '@tabler/icons-react@3.30.0(react@18.2.0)':
     dependencies:
-      '@tabler/icons': 2.46.0
-      prop-types: 15.8.1
+      '@tabler/icons': 3.30.0
       react: 18.2.0
 
-  '@tabler/icons@2.46.0': {}
+  '@tabler/icons@3.30.0': {}
 
   '@types/node@20.11.0':
     dependencies:
