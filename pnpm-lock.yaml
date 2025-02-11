@@ -8,9 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@hono/zod-validator':
+        specifier: ^0.4.2
+        version: 0.4.2(hono@4.7.0)(zod@3.24.1)
       '@mantine/core':
         specifier: ^7.4.1
-        version: 7.4.1(@mantine/hooks@7.4.1)(@types/react@18.2.47)(react-dom@18.2.0)(react@18.2.0)
+        version: 7.4.1(@mantine/hooks@7.4.1(react@18.2.0))(@types/react@18.2.47)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mantine/hooks':
         specifier: ^7.4.1
         version: 7.4.1(react@18.2.0)
@@ -20,18 +23,24 @@ importers:
       '@vercel/analytics':
         specifier: ^1.1.1
         version: 1.1.1
+      hono:
+        specifier: ^4.7.0
+        version: 4.7.0
       jotai:
         specifier: ^2.6.1
         version: 2.6.1(@types/react@18.2.47)(react@18.2.0)
       next:
         specifier: 14.1.1
-        version: 14.1.1(react-dom@18.2.0)(react@18.2.0)
+        version: 14.1.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      zod:
+        specifier: ^3.24.1
+        version: 3.24.1
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.5.1
@@ -141,6 +150,12 @@ packages:
 
   '@floating-ui/utils@0.2.1':
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
+
+  '@hono/zod-validator@0.4.2':
+    resolution: {integrity: sha512-1rrlBg+EpDPhzOV4hT9pxr5+xDVmKuz6YJl+la7VCwK6ass5ldyKm5fD+umJdV2zhHD6jROoCCv8NbTwyfhT0g==}
+    peerDependencies:
+      hono: '>=3.9.0'
+      zod: ^3.19.1
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -456,6 +471,10 @@ packages:
   hasown@2.0.0:
     resolution: {integrity: sha512-vUptKVTpIJhcczKBbgnS+RtcuYMB8+oNzPK2/Hp3hanz8JmpATdmmgLgSaadVREkDm+e2giHwY3ZRkyjSIDDFA==}
     engines: {node: '>= 0.4'}
+
+  hono@4.7.0:
+    resolution: {integrity: sha512-hV97aIR4WYbG30k234sD9B3VNr1ZWdQRmrVF76LKFlmI7O9Yo70mG9+mFwyQ6Sjrz4wH71GfnBxv6CPjcx3QNw==}
+    engines: {node: '>=16.9.0'}
 
   invariant@2.2.4:
     resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
@@ -908,6 +927,9 @@ packages:
     resolution: {integrity: sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==}
     engines: {node: '>= 14'}
 
+  zod@3.24.1:
+    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
+
 snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
@@ -960,21 +982,26 @@ snapshots:
       '@floating-ui/core': 1.5.3
       '@floating-ui/utils': 0.2.1
 
-  '@floating-ui/react-dom@2.0.5(react-dom@18.2.0)(react@18.2.0)':
+  '@floating-ui/react-dom@2.0.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@floating-ui/dom': 1.5.4
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@floating-ui/react@0.24.8(react-dom@18.2.0)(react@18.2.0)':
+  '@floating-ui/react@0.24.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@floating-ui/react-dom': 2.0.5(react-dom@18.2.0)(react@18.2.0)
+      '@floating-ui/react-dom': 2.0.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       aria-hidden: 1.2.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tabbable: 6.2.0
 
   '@floating-ui/utils@0.2.1': {}
+
+  '@hono/zod-validator@0.4.2(hono@4.7.0)(zod@3.24.1)':
+    dependencies:
+      hono: 4.7.0
+      zod: 3.24.1
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -1002,14 +1029,14 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  '@mantine/core@7.4.1(@mantine/hooks@7.4.1)(@types/react@18.2.47)(react-dom@18.2.0)(react@18.2.0)':
+  '@mantine/core@7.4.1(@mantine/hooks@7.4.1(react@18.2.0))(@types/react@18.2.47)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@floating-ui/react': 0.24.8(react-dom@18.2.0)(react@18.2.0)
+      '@floating-ui/react': 0.24.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mantine/hooks': 7.4.1(react@18.2.0)
       clsx: 2.0.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      react-number-format: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+      react-number-format: 5.3.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-remove-scroll: 2.5.7(@types/react@18.2.47)(react@18.2.0)
       react-textarea-autosize: 8.5.3(@types/react@18.2.47)(react@18.2.0)
       type-fest: 3.13.1
@@ -1262,6 +1289,8 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
+  hono@4.7.0: {}
+
   invariant@2.2.4:
     dependencies:
       loose-envify: 1.4.0
@@ -1295,7 +1324,7 @@ snapshots:
   jiti@1.21.0: {}
 
   jotai@2.6.1(@types/react@18.2.47)(react@18.2.0):
-    dependencies:
+    optionalDependencies:
       '@types/react': 18.2.47
       react: 18.2.0
 
@@ -1334,7 +1363,7 @@ snapshots:
 
   nanoid@3.3.7: {}
 
-  next@14.1.1(react-dom@18.2.0)(react@18.2.0):
+  next@14.1.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@next/env': 14.1.1
       '@swc/helpers': 0.5.2
@@ -1401,8 +1430,9 @@ snapshots:
   postcss-load-config@4.0.2(postcss@8.4.33):
     dependencies:
       lilconfig: 3.0.0
-      postcss: 8.4.33
       yaml: 2.3.4
+    optionalDependencies:
+      postcss: 8.4.33
 
   postcss-nested@6.0.1(postcss@8.4.33):
     dependencies:
@@ -1444,7 +1474,7 @@ snapshots:
 
   react-is@16.13.1: {}
 
-  react-number-format@5.3.1(react-dom@18.2.0)(react@18.2.0):
+  react-number-format@5.3.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       prop-types: 15.8.1
       react: 18.2.0
@@ -1452,28 +1482,31 @@ snapshots:
 
   react-remove-scroll-bar@2.3.4(@types/react@18.2.47)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.47
       react: 18.2.0
       react-style-singleton: 2.2.1(@types/react@18.2.47)(react@18.2.0)
       tslib: 2.6.2
+    optionalDependencies:
+      '@types/react': 18.2.47
 
   react-remove-scroll@2.5.7(@types/react@18.2.47)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.47
       react: 18.2.0
       react-remove-scroll-bar: 2.3.4(@types/react@18.2.47)(react@18.2.0)
       react-style-singleton: 2.2.1(@types/react@18.2.47)(react@18.2.0)
       tslib: 2.6.2
       use-callback-ref: 1.3.1(@types/react@18.2.47)(react@18.2.0)
       use-sidecar: 1.1.2(@types/react@18.2.47)(react@18.2.0)
+    optionalDependencies:
+      '@types/react': 18.2.47
 
   react-style-singleton@2.2.1(@types/react@18.2.47)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.47
       get-nonce: 1.0.1
       invariant: 2.2.4
       react: 18.2.0
       tslib: 2.6.2
+    optionalDependencies:
+      '@types/react': 18.2.47
 
   react-textarea-autosize@8.5.3(@types/react@18.2.47)(react@18.2.0):
     dependencies:
@@ -1624,9 +1657,10 @@ snapshots:
 
   use-callback-ref@1.3.1(@types/react@18.2.47)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.47
       react: 18.2.0
       tslib: 2.6.2
+    optionalDependencies:
+      '@types/react': 18.2.47
 
   use-composed-ref@1.3.0(react@18.2.0):
     dependencies:
@@ -1634,21 +1668,24 @@ snapshots:
 
   use-isomorphic-layout-effect@1.1.2(@types/react@18.2.47)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.47
       react: 18.2.0
+    optionalDependencies:
+      '@types/react': 18.2.47
 
   use-latest@1.2.1(@types/react@18.2.47)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.47
       react: 18.2.0
       use-isomorphic-layout-effect: 1.1.2(@types/react@18.2.47)(react@18.2.0)
+    optionalDependencies:
+      '@types/react': 18.2.47
 
   use-sidecar@1.1.2(@types/react@18.2.47)(react@18.2.0):
     dependencies:
-      '@types/react': 18.2.47
       detect-node-es: 1.1.0
       react: 18.2.0
       tslib: 2.6.2
+    optionalDependencies:
+      '@types/react': 18.2.47
 
   util-deprecate@1.0.2: {}
 
@@ -1669,3 +1706,5 @@ snapshots:
       strip-ansi: 7.1.0
 
   yaml@2.3.4: {}
+
+  zod@3.24.1: {}
