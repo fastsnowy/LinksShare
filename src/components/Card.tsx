@@ -21,12 +21,12 @@ export function ShareCard({ misskey, mastodon }: Props) {
   const paramServer = searchParams.get("server")
   const [localMissikeyServer, setLocalMisskeyServer] = useLocalStorage({
     key: "misskey-server",
-    defaultValue: "",
+    defaultValue: "misskey.io",
   })
 
   const [localMastodonServer, setLocalMastodonServer] = useLocalStorage({
     key: "mastodon-server",
-    defaultValue: "",
+    defaultValue: "mastdn.jp",
   })
 
   useState(() => {
@@ -73,7 +73,7 @@ export function ShareCard({ misskey, mastodon }: Props) {
         <Autocomplete
           label="サーバーを選択"
           description="共有先のサーバーを入力"
-          placeholder="ex: mastodon.social"
+          placeholder="ex: mastdn.jp"
           data={mastodon}
           value={localMastodonServer}
           onChange={(event) => setLocalMastodonServer(event)}
