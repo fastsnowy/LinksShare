@@ -48,6 +48,23 @@ export default async function Home() {
     )
   } catch (error) {
     console.error(error)
-    return <div>Error loading data</div>
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center px-4 gap-8">
+        <AboutThisSite />
+        <Suspense>
+          <ShareCard misskey={["misskey.io"]} mastodon={["mstdn.jp"]} />
+        </Suspense>
+        <ActionIcon
+          variant="subtle"
+          color="gray"
+          size="lg"
+          component="a"
+          target="_blank"
+          href="https://github.com/fastsnowy/LinksShare"
+        >
+          <IconBrandGithub />
+        </ActionIcon>
+      </main>
+    )
   }
 }
