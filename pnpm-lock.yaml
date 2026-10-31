@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: ^0.4.2
-        version: 0.4.2(hono@4.7.0)(zod@3.24.1)
+        version: 0.4.2(hono@4.7.0)(zod@4.6.7)
       '@mantine/core':
         specifier: ^7.4.1
         version: 7.4.1(@mantine/hooks@7.4.1(react@18.2.0))(@types/react@18.2.47)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -39,8 +39,8 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
       zod:
-        specifier: ^3.24.1
-        version: 3.24.1
+        specifier: ^4.0.0
+        version: 4.6.7
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.5.1
@@ -571,6 +571,7 @@ packages:
   next@14.2.24:
     resolution: {integrity: sha512-En8VEexSJ0Py2FfVnRRh8gtERwDRaJGNvsvad47ShkC2Yi8AXQPXEA2vKoDJlGFSj5WE5SyF21zNi4M5gyi+SQ==}
     engines: {node: '>=18.17.0'}
+    deprecated: This version has a security vulnerability. Please upgrade to a patched version. See https://nextjs.org/blog/security-update-2025-12-11 for more details.
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
@@ -935,8 +936,8 @@ packages:
     engines: {node: '>= 14'}
     hasBin: true
 
-  zod@3.24.1:
-    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
+  zod@4.6.7:
+    resolution: {integrity: sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg==}
 
 snapshots:
 
@@ -1006,10 +1007,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.1': {}
 
-  '@hono/zod-validator@0.4.2(hono@4.7.0)(zod@3.24.1)':
+  '@hono/zod-validator@0.4.2(hono@4.7.0)(zod@4.6.7)':
     dependencies:
       hono: 4.7.0
-      zod: 3.24.1
+      zod: 4.6.7
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -1721,4 +1722,4 @@ snapshots:
 
   yaml@2.7.0: {}
 
-  zod@3.24.1: {}
+  zod@4.6.7: {}
